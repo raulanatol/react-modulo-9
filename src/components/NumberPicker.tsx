@@ -1,7 +1,9 @@
-import * as React from "react";
+import * as React from 'react';
 
 export interface NumberPickerProps {
   value?: number;
+  min?: number;
+  max?: number;
 }
 
 export interface NumberPickerState {
@@ -21,12 +23,18 @@ export default class NumberPicker extends React.Component<NumberPickerProps, Num
   }
 
   increase() {
-    const newValue = this.state.value + 1;
+    let newValue = this.state.value + 1;
+    if (this.props.max) {
+      newValue = Math.min(newValue, this.props.max);
+    }
     this.setState({ value: newValue });
   }
 
   decrease() {
-    const newValue = this.state.value - 1;
+    let newValue = this.state.value - 1;
+    if (this.props.min) {
+      newValue = Math.max(this.props.min, newValue);
+    }
     this.setState({ value: newValue });
   }
 
