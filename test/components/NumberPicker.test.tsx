@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import NumberPicker from "../../src/components/NumberPicker";
+import NumberPicker from '../../src/components/NumberPicker';
 
 describe('NumberPicker', () => {
   describe('render', () => {
