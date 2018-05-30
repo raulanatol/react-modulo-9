@@ -4,6 +4,7 @@ import Header from './containers/Header';
 import Home from './pages/Home';
 import About from './pages/About';
 import Movies from './pages/Movies';
+import NewMovie from './pages/NewMovie';
 
 export default class App extends React.Component {
   render() {
@@ -14,6 +15,7 @@ export default class App extends React.Component {
         <Route path="/home" component={Home}/>
         <Route path="/about" component={About}/>
         <Route path="/movies" component={Movies}/>
+        <Route path="/newMovie" component={NewMovie}/>
       </div>
     </Router>;
   }
