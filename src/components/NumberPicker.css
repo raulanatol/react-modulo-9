@@ -1,0 +1,40 @@
+.container {
+  width: 150px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 1px solid #EDEEF4;
+  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.03);
+  color: #385871;
+  border-radius: 5px;
+}
+
+.label {
+  width: 100px;
+  height: 32px;
+  text-align: center;
+  padding: 0;
+  outline: none;
+  font-family: OpenSans-Bold, sans-serif;
+  color: #385871;
+  border-radius: 5px;
+  line-height: 30px;
+}
+
+.buttons {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 50%;
+  font-size: 25px;
+  padding-bottom: 5px;
+  line-height: 25px;
+  cursor: pointer;
+}
+
