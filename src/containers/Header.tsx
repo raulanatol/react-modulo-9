@@ -2,12 +2,14 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 import { CounterStore } from '../stores/CounterStore';
+import { ModalStore } from '../stores/ModalStore';
 
 export interface HeaderProps {
   counterStore?: CounterStore;
+  modalStore?: ModalStore;
 }
 
-@inject('counterStore')
+@inject('counterStore', 'modalStore')
 @observer
 export default class Header extends React.Component<HeaderProps, {}> {
   constructor(props) {
@@ -15,6 +17,7 @@ export default class Header extends React.Component<HeaderProps, {}> {
 
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   increment() {
@@ -23,6 +26,10 @@ export default class Header extends React.Component<HeaderProps, {}> {
 
   decrement() {
     this.props.counterStore.decrement(2);
+  }
+
+  toggleModal() {
+    this.props.modalStore.toggleModal();
   }
 
   render() {
@@ -35,6 +42,7 @@ export default class Header extends React.Component<HeaderProps, {}> {
       <li>
         <button onClick={this.increment}>+</button>
         <button onClick={this.decrement}>-</button>
+        <button onClick={this.toggleModal}>MODAL</button>
       </li>
     </ul>;
   }
