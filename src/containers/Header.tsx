@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 import { inject, observer } from 'mobx-react';
 import { CounterStore } from '../stores/CounterStore';
 import { ModalStore } from '../stores/ModalStore';
+import { UserStore } from '../stores/UserStore';
 
 export interface HeaderProps {
   counterStore?: CounterStore;
   modalStore?: ModalStore;
+  userStore?: UserStore;
 }
 
-@inject('counterStore', 'modalStore')
+@inject('counterStore', 'modalStore', 'userStore')
 @observer
 export default class Header extends React.Component<HeaderProps, {}> {
   constructor(props) {
@@ -39,6 +41,7 @@ export default class Header extends React.Component<HeaderProps, {}> {
       <li><Link to="/about">About</Link></li>
       <li><Link to="/movies">Movies</Link></li>
       <li><Link to="/newMovie">New Movie</Link></li>
+      {this.props.userStore.user && this.props.userStore.user.admin && <li><Link to="/admin">Admin</Link></li>}
       <li>
         <button onClick={this.increment}>+</button>
         <button onClick={this.decrement}>-</button>
